@@ -7,7 +7,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
-    id("com.google.gms.google-services")
+//    id("com.google.gms.google-services")
 }
 
 android {
@@ -54,7 +54,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"http://116.105.222.85:8080/\""
+                "\"http://116.110.88.22:8080/\""
             )
             resValue("string", "app_name", "English-dev")
         }
@@ -64,7 +64,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"http://116.105.222.85:8080/\""
+                "\"http://116.110.88.22:8080/\""
             )
             resValue("string", "app_name", "English-stg")
         }
@@ -74,7 +74,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"http://116.105.222.85:8080/\""
+                "\"http://116.110.88.22:8080/\""
             )
             resValue("string", "app_name", "English")
         }
@@ -94,6 +94,10 @@ dependencies {
     implementation("com.facebook.shimmer:shimmer:0.5.0")
     implementation(platform("com.google.firebase:firebase-bom:32.2.0"))
     implementation("com.google.firebase:firebase-analytics-ktx")
+
+    debugImplementation("com.github.chuckerteam.chucker:library:3.5.2")
+    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:3.5.2")
+
     //kapt
     kapt(AppDependencies.androidLibrariesKapt)
     //test libs

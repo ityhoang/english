@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="gray_20">#33A3ADAA</color>
+    <color name="primary_500">#FF304FBE</color>
+    <color name="yellow_500">#FFDA2C</color>
+
+    <color name="english_primary">#683BED</color>
+    <color name="english_primary_500">#304FBE</color>
+    <color name="english_neutral_600">#718096</color>
+    <color name="english_text_color">#161F1C</color>
+    <color name="english_line">#1A304FBE</color>
+    <color name="english_bg">#F4F4F5</color>
+    <color name="english_font_title">#2E3E5C</color>
 </resources>

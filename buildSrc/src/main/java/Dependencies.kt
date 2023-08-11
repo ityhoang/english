@@ -41,7 +41,8 @@ object AppDependencies {
   private const val networkRetrofitLogging = "com.squareup.okhttp3:logging-interceptor:$okhttpLoggingVersion"
   private const val adapterRxjava = "com.squareup.retrofit2:adapter-rxjava3:$retrofitAndroidVersion"
   private const val retrofitGson = "com.squareup.retrofit2:converter-gson:$retrofitAndroidVersion"
-
+  private const val retrofitAdapter  = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+  private const val timber = "com.jakewharton.timber:timber:4.7.1"
   private const val reactiveRxJava3 = "io.reactivex.rxjava3:rxjava:3.0.7"
   private const val reactiveRxAndroid = "io.reactivex.rxjava3:rxandroid:3.0.0"
 
@@ -95,6 +96,8 @@ object AppDependencies {
     add(networkRetrofitLogging)
     add(adapterRxjava)
     add(retrofitGson)
+    add(retrofitAdapter)
+    add(timber)
     add(reactiveRxJava3)
     add(reactiveRxAndroid)
     add(lifecycleViewModel)
@@ -110,6 +113,7 @@ object AppDependencies {
     add(dotsIndicator)
     add(swipeLayout)
     add(barcode)
+
   }
 
   val androidLibrariesKapt = arrayListOf<String>().apply {

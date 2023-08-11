@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/english_home_navigation"
+        android:icon="@drawable/english_ic_home"
+        android:title="@string/english_title_home"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/english_wordbook_navigation"
+        android:icon="@drawable/english_ic_wordbook"
+        android:title="@string/english_title_wordbook"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/english_account_navigation"
+        android:icon="@drawable/english_ic_account"
+        android:title="@string/english_title_account"
+        app:showAsAction="ifRoom" />
+</menu>

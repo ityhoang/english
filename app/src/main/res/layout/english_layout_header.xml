@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dip_50"
+    android:background="@drawable/bg_boder_header">
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imvLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/dip_10"
+        android:layout_marginBottom="@dimen/dip_12"
+        android:paddingStart="@dimen/dip_22"
+        android:paddingEnd="@dimen/dip_15"
+        android:src="@drawable/english_ic_home" />
+
+    <View
+
+        android:id="@+id/layoutLeft"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/imvLeft"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:focusable="true" />
+
+    <TextView
+        android:id="@+id/tvTitleHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imvLeft"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-5dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@color/english_font_title"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        tools:text="Picking" />
+
+    <LinearLayout
+        android:id="@+id/layoutRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imvLeft"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="-5dp"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:paddingEnd="@dimen/dip_22">
+
+        <TextView
+            android:id="@+id/subName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="Name of myapp"
+            android:textColor="@color/english_text_color"
+            android:textSize="11sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:text="English" />
+    </LinearLayout>
+
+</RelativeLayout>
