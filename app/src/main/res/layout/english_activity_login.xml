@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/english_background" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgAstronaut"
+            android:layout_width="@dimen/dip_172"
+            android:layout_height="@dimen/dip_172"
+            android:layout_marginTop="@dimen/dip_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/english_ic_astronaut" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/titleSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip_28"
+            android:text="Sign in"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgAstronaut" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_20"
+            android:layout_marginTop="@dimen/dip_35"
+            app:cardCornerRadius="@dimen/dip_8"
+            app:cardElevation="@dimen/dip_8"
+            app:cardPreventCornerOverlap="true"
+            app:layout_constraintTop_toBottomOf="@+id/titleSignIn">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/layoutEdtEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorIconDrawable="@null"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edt"
+                    android:drawableStart="@drawable/english_ic_mail"
+                    android:drawablePadding="@dimen/dip_10"
+                    android:hint="Your email"
+                    android:includeFontPadding="false"
+                    android:inputType="textEmailAddress"
+                    app:boxCornerRadiusTopEnd="4dp"
+                    app:boxCornerRadiusTopStart="4dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_20"
+            android:layout_marginTop="@dimen/dip_17"
+            app:cardCornerRadius="@dimen/dip_8"
+            app:cardElevation="@dimen/dip_8"
+            app:cardPreventCornerOverlap="true"
+            app:layout_constraintTop_toBottomOf="@+id/cardEmail">
+
+            <com.google.android.material.textfield.TextInputLayout
+
+                android:id="@+id/layoutEdtPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorIconDrawable="@null"
+                app:hintEnabled="false"
+                app:passwordToggleDrawable="@drawable/english_ic_hide"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_edt"
+                    android:drawableStart="@drawable/english_ic_lock"
+                    android:drawablePadding="@dimen/dip_10"
+                    android:hint="Enter password"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip_15"
+            android:text="Forgot password?"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/cardPassword"
+            app:layout_constraintTop_toBottomOf="@+id/cardPassword" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_20"
+            android:layout_marginTop="@dimen/dip_68"
+            app:cardCornerRadius="@dimen/dip_8"
+            app:cardElevation="@dimen/dip_8"
+            app:cardPreventCornerOverlap="true"
+            app:layout_constraintTop_toBottomOf="@+id/cardPassword">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/yellow_500"
+                android:insetTop="@dimen/dip_0"
+                android:insetBottom="@dimen/dip_0"
+                android:letterSpacing="0"
+                android:stateListAnimator="@null"
+                android:text="Sign in"
+                android:textAllCaps="false"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:cornerRadius="@dimen/dip_8" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvSupport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_20"
+            android:layout_marginTop="@dimen/dip_20"
+            app:layout_constraintEnd_toEndOf="@+id/cardSignIn"
+            app:layout_constraintStart_toStartOf="@+id/cardSignIn"
+            app:layout_constraintTop_toBottomOf="@+id/cardSignIn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

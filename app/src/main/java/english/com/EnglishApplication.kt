@@ -1,6 +1,8 @@
 package english.com
+
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.Configuration
 import android.provider.Settings
 import androidx.ads.identifier.AdvertisingIdClient
 import androidx.lifecycle.Lifecycle
@@ -8,7 +10,6 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.multidex.MultiDexApplication
-
 import dagger.hilt.android.HiltAndroidApp
 import english.com.data.session.Session
 import english.com.utils.LocaleManager
@@ -17,25 +18,29 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.greenrobot.eventbus.EventBus
+import javax.inject.Inject
 
 @HiltAndroidApp
 class EnglishApplication : MultiDexApplication(), LifecycleEventObserver {
+
+    @Inject
+    lateinit var session: Session
+
     override fun attachBaseContext(base: Context) {
         super.attachBaseContext(LocaleManager.updateContext(base))
     }
 
-    override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
+    override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         LocaleManager.updateContext(this)
     }
 
     override fun onCreate() {
         super.onCreate()
-        if (Session(this).deviceId.isEmpty()) {
+        if (session.deviceId.isEmpty()) {
             getDeviceId()
         }
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
-
     }
 
 
@@ -43,7 +48,7 @@ class EnglishApplication : MultiDexApplication(), LifecycleEventObserver {
     @Suppress("BlockingMethodInNonBlockingContext")
     private fun getDeviceId() {
         CoroutineScope(Dispatchers.IO).launch {
-            Session(this@EnglishApplication).deviceId = try {
+            session.deviceId = try {
                 AdvertisingIdClient.getAdvertisingIdInfo(this@EnglishApplication)
                     .get()?.id?.takeIf { it.isNotEmpty() } ?: Settings.Secure.getString(
                     contentResolver,

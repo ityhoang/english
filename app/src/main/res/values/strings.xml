@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">english</string>
+    <string name="english_tv_sign_up"><![CDATA[<font face="font/sfprodisplayregular.ttf" color=\'#161F1C\'>Don\'t have any account? </font><font color=\'#FFFFFF\'><b>Sign Up</b></font>]]></string>
+    <string name="english_tv_sign_in"><![CDATA[<font face="font/sfprodisplayregular.ttf" color=\'#161F1C\'>Already have any account? </font><font color=\'#FFFFFF\'><b>Sign In</b></font>]]></string>
+
+    <string name="english_title_account">Account</string>
+    <string name="english_title_home">Home</string>
+    <string name="english_title_wordbook">wordbook</string>
+
 </resources>
