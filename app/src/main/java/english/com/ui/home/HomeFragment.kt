@@ -22,6 +22,7 @@ class HomeFragment : BaseFragment<EnglishFragmentHomeBinding, HomeViewModel>() {
 //                viewModel.logout()
 //                LoginActivity.start(requireActivity())
 //            }
+            tvCountPoint.text = "1"
             cardItemGame.setOnClickListener {
                 checkStoragePermission { }
             }
