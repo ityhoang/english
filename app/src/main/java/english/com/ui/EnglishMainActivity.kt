@@ -18,7 +18,7 @@ import english.com.databinding.EnglishActivityMainBinding
 import english.com.utils.extensions.isTrue
 import english.com.utils.extensions.setupWithNavController
 import english.com.view.motion.AnimationListener
-
+//test
 @AndroidEntryPoint
 class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
     override val layoutId = R.layout.english_activity_main
