@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/english_card_bg"
+    android:layout_marginStart="@dimen/dip_15"
+    android:layout_marginBottom="@dimen/dip_15"
+    android:paddingTop="@dimen/dip_20"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:layout_width="@dimen/dip_63"
+        android:layout_height="@dimen/dip_63"
+        android:src="@drawable/lion"
+        android:contentDescription="Animal Face" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Animals"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/dip_10"
+        android:textColor="@color/black"
+        android:lineHeight="@dimen/dip_27"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1000pts"
+        android:textSize="10dp"
+        android:lineHeight="@dimen/dip_18"
+        android:textColor="@color/black"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In Progress"
+        android:paddingHorizontal="@dimen/dip_5"
+        android:layout_marginTop="@dimen/dip_10"
+        android:textSize="@dimen/dip_12"
+        android:textColor="#B16E3D"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/english_inprogress_bg"/>
+
+</LinearLayout>
