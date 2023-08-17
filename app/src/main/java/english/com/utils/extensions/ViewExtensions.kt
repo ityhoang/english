@@ -5,9 +5,8 @@ import android.content.Context
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import english.com.utils.SafeClickListener
 
 fun Activity.setFullScreen() {
@@ -47,10 +46,4 @@ internal fun View.hide() {
     visibility = View.GONE
 }
 
-fun Fragment.baseGridLayoutManager(spanCount: Int): GridLayoutManager {
-    return GridLayoutManager(requireContext(), spanCount, RecyclerView.VERTICAL, false).apply {
-        spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int) = 1
-        }
-    }
-}
+fun View.toDp(@DimenRes dimen: Int) = resources.getDimensionPixelSize(dimen)

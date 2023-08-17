@@ -100,10 +100,11 @@ class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
     private fun initBottomViewEdge(bottomNavigationView: BottomAppBar) {
         (bottomNavigationView.background as? MaterialShapeDrawable)?.let { shapeDrawable ->
             val cornerSize = resources.getDimensionPixelSize(R.dimen.dip_16).toFloat()
-            shapeDrawable.shapeAppearanceModel.toBuilder()
+            shapeDrawable.shapeAppearanceModel
+                .toBuilder()
                 .setTopLeftCorner(CornerFamily.ROUNDED, cornerSize)
-                .setTopRightCorner(CornerFamily.ROUNDED, cornerSize).build()
-                .let { appearanceModel ->
+                .setTopRightCorner(CornerFamily.ROUNDED, cornerSize)
+                .build().let { appearanceModel ->
                     shapeDrawable.shapeAppearanceModel = appearanceModel
                 }
         }

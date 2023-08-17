@@ -67,7 +67,10 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>() : Fragme
                 )
             )
         )
-
     }
-
+    fun View.onBack(){
+        setOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
 }

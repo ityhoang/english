@@ -8,5 +8,14 @@
         android:id="@+id/wordBookFragment"
         android:name="english.com.ui.wordbook.WordBookFragment"
         android:label="WordBookFragment"
-        tools:layout="@layout/english_wordbook_fragment" />
+        tools:layout="@layout/english_wordbook_fragment">
+        <action
+            android:id="@+id/action_wordBookFragment_to_vocabularyFragment"
+            app:destination="@id/vocabularyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vocabularyFragment"
+        android:name="english.com.ui.wordbook.vocabulary.VocabularyFragment"
+        android:label="VocabularyFragment"
+        tools:layout="@layout/english_fragment_vocabulary" />
 </navigation>
