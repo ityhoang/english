@@ -3,6 +3,7 @@ package english.com.ui
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
 import androidx.activity.viewModels
@@ -15,8 +16,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import english.com.R
 import english.com.base.BaseActivity
 import english.com.databinding.EnglishActivityMainBinding
+import english.com.utils.extensions.hide
 import english.com.utils.extensions.isTrue
 import english.com.utils.extensions.setupWithNavController
+import english.com.utils.extensions.show
 import english.com.view.motion.AnimationListener
 
 @AndroidEntryPoint
@@ -30,7 +33,12 @@ class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
         R.id.wordBookFragment,
         R.id.accountFragment,
     )
-
+    var navGraphIds = arrayListOf(
+        R.navigation.english_user_navigation,
+        R.navigation.english_home_navigation,
+        R.navigation.english_wordbook_navigation,
+        R.navigation.english_account_navigation,
+    )
 
     override fun onObserve() {
         super.onObserve()
@@ -42,12 +50,7 @@ class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
         val bottomNavigationView = binding.bottomAppBar
         initBottomViewEdge(bottomNavigationView)
 
-        val navGraphIds = listOf(
-            R.navigation.english_home_navigation,
-            R.navigation.english_wordbook_navigation,
-            R.navigation.english_account_navigation,
-        )
-
+        val isLogin = intent.getBooleanExtra("isLogin", false)
         val controller = binding.bottomNavigation.setupWithNavController(
             navGraphIds = navGraphIds,
             fragmentManager = supportFragmentManager,
@@ -55,7 +58,9 @@ class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
             intent = intent
         )
         currentNavController = controller
-
+        if (isLogin) {
+            binding.bottomNavigation.selectedItemId = R.id.english_home_navigation
+        }
         currentNavController?.observe(this) { nv ->
             navController?.removeOnDestinationChangedListener(onDestinationChangedListener)
             navController = nv
@@ -65,6 +70,14 @@ class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
 
     private val onDestinationChangedListener =
         NavController.OnDestinationChangedListener { _, destination, _ ->
+            binding.bottomNavigation.post {
+                Log.d("tyhoang", ": ${destination.displayName}")
+            }
+            if (destination.id == R.id.loginFragment) {
+                binding.bottomAppBar.hide()
+            } else {
+                binding.bottomAppBar.show()
+            }
             showBottomBar(showBottomBarWithFragments.contains(destination.id))
         }
 
@@ -102,15 +115,15 @@ class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
     }
 
     companion object {
-        fun start(context: Context) {
+        fun start(context: Context, isLogin: Boolean? = false) {
             val fadeInAnim = android.R.anim.fade_in
             val fadeOutAnim = android.R.anim.fade_out
 
             context.startActivity(Intent(context, EnglishMainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                putExtra("isLogin", isLogin)
             })
             (context as Activity).overridePendingTransition(fadeInAnim, fadeOutAnim)
-
         }
     }
 }

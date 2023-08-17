@@ -1,9 +1,13 @@
 package english.com.utils.extensions
 
 import android.app.Activity
+import android.content.Context
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import english.com.utils.SafeClickListener
 
 fun Activity.setFullScreen() {
@@ -17,13 +21,36 @@ fun View.safeOnClickListener(onSafeClick: (View) -> Unit) {
     }
     this.setOnClickListener(safeClickListener)
 }
+
 internal fun View.hideKeyboard() {
     val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.hideSoftInputFromWindow(windowToken, 0)
 }
 
-fun Activity.hideKeyboard() {
+internal fun Fragment.hideKeyboard() {
+    val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    val currentFocusView = requireActivity().currentFocus ?: return
+    imm.hideSoftInputFromWindow(currentFocusView.windowToken, 0)
+}
+
+internal fun Activity.hideKeyboard() {
     val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     val currentFocusView = currentFocus ?: return
     imm.hideSoftInputFromWindow(currentFocusView.windowToken, 0)
+}
+
+internal fun View.show() {
+    visibility = View.VISIBLE
+}
+
+internal fun View.hide() {
+    visibility = View.GONE
+}
+
+fun Fragment.baseGridLayoutManager(spanCount: Int): GridLayoutManager {
+    return GridLayoutManager(requireContext(), spanCount, RecyclerView.VERTICAL, false).apply {
+        spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int) = 1
+        }
+    }
 }

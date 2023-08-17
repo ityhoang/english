@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isVisible"
+            type="Boolean" />
+
+        <import type="english.com.R" />
+    </data>
+
+    <FrameLayout
+        android:elevation="@dimen/dip_2"
+        android:background="@color/english_black_50"
+        android:id="@+id/loadingFrame"
+        animateShowHideFade="@{isVisible}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="@{isVisible}"
+        android:focusable="@{isVisible}"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/english_bg_white_corner_12">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivImage"
+                gif="@{R.raw.english_loading_black}"
+                android:layout_width="@dimen/dip_115"
+                android:layout_height="@dimen/dip_60"
+                android:layout_centerHorizontal="true"
+                android:layout_marginHorizontal="@dimen/dip_16"
+                android:layout_marginTop="@dimen/dip_6"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivImage"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/dip_12"
+                android:text="@string/english_loading" />
+
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</layout>

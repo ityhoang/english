@@ -54,7 +54,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"http://116.110.88.22:8080/\""
+                "\"http://116.105.217.31:8080/\""
             )
             resValue("string", "app_name", "English-dev")
         }
@@ -64,7 +64,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"http://116.110.88.22:8080/\""
+                "\"http://116.105.217.31:8080/\""
             )
             resValue("string", "app_name", "English-stg")
         }
@@ -74,7 +74,7 @@ android {
             buildConfigField(
                 "String",
                 "API_URL",
-                "\"http://116.110.88.22:8080/\""
+                "\"http://116.105.217.31:8080/\""
             )
             resValue("string", "app_name", "English")
         }

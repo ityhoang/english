@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import english.com.base.BaseException
 import english.com.base.BaseViewModel
-import english.com.model.EnglishBaseResponse
+import english.com.data.model.EnglishBaseResponse
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import kotlin.coroutines.cancellation.CancellationException

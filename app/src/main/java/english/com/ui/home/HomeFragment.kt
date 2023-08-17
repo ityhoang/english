@@ -2,6 +2,7 @@ package english.com.ui.home
 
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.ActivityNavigator
 import dagger.hilt.android.AndroidEntryPoint
 import english.com.R
 import english.com.base.BaseFragment
@@ -16,16 +17,7 @@ class HomeFragment : BaseFragment<EnglishFragmentHomeBinding, HomeViewModel>() {
     override fun initView() {
         super.initView()
         binding.apply {
-//            tvFullName.text = viewModel.user.getFullName()
-//
-//            btnLogout.setOnClickListener {
-//                viewModel.logout()
-//                LoginActivity.start(requireActivity())
-//            }
             tvCountPoint.text = "1"
-            cardItemGame.setOnClickListener {
-                checkStoragePermission { }
-            }
         }
     }
 
@@ -36,6 +28,4 @@ class HomeFragment : BaseFragment<EnglishFragmentHomeBinding, HomeViewModel>() {
             toolbar.tvRight.setColor(R.color.primary_500)
         }
     }
-
-
 }

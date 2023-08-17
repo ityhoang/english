@@ -19,4 +19,9 @@
     <color name="english_line">#1A304FBE</color>
     <color name="english_bg">#F4F4F5</color>
     <color name="english_font_title">#2E3E5C</color>
+    <color name="english_yellow">#FFDA2C</color>
+    <color name="english_green">#43CC28</color>
+    <color name="english_font_brown">#B16E3D</color>
+    <color name="english_black_50">#80000000</color>
+    <color name="english_broccoli">#49B0AB</color>
 </resources>

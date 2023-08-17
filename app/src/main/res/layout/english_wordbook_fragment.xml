@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -7,7 +9,66 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/english_bg">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/english_layout_header" />
+
+
+        <ProgressBar
+            android:id="@+id/pbTask"
+            style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip_11"
+            android:layout_marginHorizontal="@dimen/dip_16"
+            android:layout_marginTop="@dimen/dip_10"
+            android:indeterminate="false"
+            android:progress="50"
+            android:progressDrawable="@drawable/english_bg_progressbar"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:targetApi="lollipop" />
+
+        <LinearLayout
+            android:id="@+id/layoutSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_16"
+            android:layout_marginTop="@dimen/dip_10"
+            app:layout_constraintTop_toBottomOf="@id/pbTask">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/dip_20"
+                android:text="Level 3"
+                android:textColor="@color/black"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="end"
+                android:lines="1"
+                android:text="54% - More 1250 pts to reach Level 4" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcWordBook"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/dip_11"
+            android:layout_marginTop="@dimen/dip_10"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutSub"
+            app:spanCount="2"
+            tools:itemCount="8"
+            tools:listitem="@layout/english_item_wordbook" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

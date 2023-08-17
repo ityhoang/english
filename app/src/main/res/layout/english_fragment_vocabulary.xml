@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/english_bg">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/english_layout_header" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcVocabulary"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:spanCount="1"
+            tools:itemCount="3"
+            tools:listitem="@layout/english_item_sub" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

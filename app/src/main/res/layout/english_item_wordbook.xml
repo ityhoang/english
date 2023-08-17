@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vocabulary"
+            type="english.com.model.Vocabulary" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/english_bg_item_vb">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_50"
+            android:layout_marginTop="@dimen/dip_19"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/english_ic_lion" />
+
+        <TextView
+            android:id="@+id/tvOriginal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip_6"
+            android:includeFontPadding="false"
+            android:text="@{vocabulary.name}"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/imgView"
+            app:layout_constraintStart_toStartOf="@id/imgView"
+            app:layout_constraintTop_toBottomOf="@id/imgView"
+            tools:text="demo" />
+
+        <TextView
+            android:id="@+id/tvCountVocabulary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip_6"
+            android:text="@{vocabulary.count + `pts`}"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/imgView"
+            app:layout_constraintStart_toStartOf="@id/imgView"
+            app:layout_constraintTop_toBottomOf="@id/tvOriginal"
+            tools:text="100 pts" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip_5"
+            android:layout_marginBottom="@dimen/dip_9"
+            app:cardBackgroundColor="@{vocabulary.isColor() ? @color/english_green : @color/english_yellow}"
+            app:cardCornerRadius="@dimen/dip_8"
+            app:cardElevation="@dimen/dip_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/imgView"
+            app:layout_constraintStart_toStartOf="@id/imgView"
+            app:layout_constraintTop_toBottomOf="@id/tvCountVocabulary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="@dimen/dip_4"
+                android:paddingVertical="@dimen/dip_2"
+                android:text="@{vocabulary.getTitle()}"
+                android:textColor="@{vocabulary.isColor() ? @color/white : @color/english_font_brown}"
+                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

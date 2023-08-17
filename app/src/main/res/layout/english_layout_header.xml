@@ -39,8 +39,8 @@
         android:textColor="@color/english_font_title"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:visibility="invisible"
-        tools:text="Picking" />
+        android:visibility="visible"
+        tools:text="Title" />
 
     <LinearLayout
         android:id="@+id/layoutRight"
