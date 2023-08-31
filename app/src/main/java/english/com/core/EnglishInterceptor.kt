@@ -1,4 +1,4 @@
-package english.com.data.remote
+package english.com.core
 
 import android.content.Context
 import okhttp3.Interceptor

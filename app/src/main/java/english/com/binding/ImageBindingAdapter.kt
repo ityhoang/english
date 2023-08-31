@@ -4,11 +4,8 @@ import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.annotation.AnimRes
 import androidx.annotation.RawRes
-import androidx.annotation.StringRes
-import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import english.com.R
@@ -55,13 +52,4 @@ fun animateView(
     })
     view.tag = show
     view.startAnimation(animate)
-}
-
-@BindingAdapter("htmlTextValue")
-fun setHtmlTextValue(
-    textView: TextView,
-    @StringRes resId: Int
-) {
-    val htmlText = textView.context.getString(resId)
-    textView.text = HtmlCompat.fromHtml(htmlText, HtmlCompat.FROM_HTML_MODE_LEGACY)
 }

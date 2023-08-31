@@ -3,6 +3,7 @@ package english.com.utils.extensions
 import android.app.Activity
 import android.content.Context
 import android.view.View
+import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.DimenRes
@@ -47,3 +48,15 @@ internal fun View.hide() {
 }
 
 fun View.toDp(@DimenRes dimen: Int) = resources.getDimensionPixelSize(dimen)
+
+
+internal fun View.setMarginsInPixels(start: Int = 0, top: Int = 0, end: Int = 0, bottom: Int = 0) {
+    if (this.layoutParams is ViewGroup.MarginLayoutParams) {
+        val p = this.layoutParams as ViewGroup.MarginLayoutParams
+        p.marginStart = start
+        p.topMargin = top
+        p.marginEnd = end
+        p.bottomMargin = bottom
+        this.requestLayout()
+    }
+}

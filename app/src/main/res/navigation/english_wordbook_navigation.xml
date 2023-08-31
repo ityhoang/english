@@ -17,5 +17,14 @@
         android:id="@+id/vocabularyFragment"
         android:name="english.com.ui.wordbook.vocabulary.VocabularyFragment"
         android:label="VocabularyFragment"
-        tools:layout="@layout/english_fragment_vocabulary" />
+        tools:layout="@layout/english_fragment_vocabulary" >
+        <action
+            android:id="@+id/action_vocabularyFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/english_fragment_quiz"
+        android:id="@+id/quizFragment"
+        android:name="english.com.ui.wordbook.quiz.QuizFragment"
+        android:label="QuizFragment" />
 </navigation>

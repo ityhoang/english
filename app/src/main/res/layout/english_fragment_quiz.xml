@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/english_bg">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/english_layout_header" />
+
+
+        <ProgressBar
+            android:id="@+id/pbTask"
+            style="@android:style/Widget.Material.Light.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dip_11"
+            android:layout_marginHorizontal="@dimen/dip_16"
+            android:layout_marginTop="@dimen/dip_10"
+            android:indeterminate="false"
+            android:progress="50"
+            android:progressDrawable="@drawable/english_bg_progressbar"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:targetApi="lollipop" />
+
+        <LinearLayout
+            android:id="@+id/layoutSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_16"
+            android:layout_marginTop="@dimen/dip_10"
+            app:layout_constraintTop_toBottomOf="@id/pbTask">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/dip_20"
+                android:text="Level 3"
+                android:textColor="@color/black"
+                tools:ignore="RtlSymmetry" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="end"
+                android:lines="1"
+                android:text="54% - More 1250 pts to reach Level 4" />
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip_70"
+            app:layout_constraintTop_toBottomOf="@id/layoutSub">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/dip_17"
+                android:scaleType="fitXY"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/english_bg_quiz" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgView"
+                android:layout_width="@dimen/dip_104"
+                android:layout_height="@dimen/dip_104"
+                android:layout_marginTop="@dimen/dip_28"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/english_ic_lion" />
+
+            <TextView
+                android:id="@+id/tvOriginal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dip_6"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imgView"
+                app:layout_constraintStart_toStartOf="@id/imgView"
+                app:layout_constraintTop_toBottomOf="@id/imgView"
+                tools:text="/ˈlaɪən/" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/dip_46"
+                android:layout_height="@dimen/dip_46"
+                android:layout_marginStart="@dimen/dip_76"
+                android:layout_marginTop="@dimen/dip_32"
+                app:cardBackgroundColor="@color/english_bg"
+                app:cardCornerRadius="@dimen/dip_25"
+                app:cardElevation="@dimen/dip_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgView">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/english_ic_snail" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/dip_46"
+                android:layout_height="@dimen/dip_46"
+                android:layout_marginTop="@dimen/dip_32"
+                android:layout_marginEnd="@dimen/dip_76"
+                app:cardBackgroundColor="@color/english_bg"
+                app:cardCornerRadius="@dimen/dip_25"
+                app:cardElevation="@dimen/dip_2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgView">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/english_ic_sound" />
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcWordBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_20"
+            android:layout_marginTop="@dimen/dip_84"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/lQuiz"
+            app:spanCount="2"
+            tools:itemCount="4"
+            tools:listitem="@layout/english_item_quiz" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -43,7 +43,6 @@ class EnglishApplication : MultiDexApplication(), LifecycleEventObserver {
         ProcessLifecycleOwner.get().lifecycle.addObserver(this)
     }
 
-
     @SuppressLint("HardwareIds")
     @Suppress("BlockingMethodInNonBlockingContext")
     private fun getDeviceId() {

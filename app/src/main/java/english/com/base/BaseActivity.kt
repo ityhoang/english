@@ -3,9 +3,6 @@ package english.com.base
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.LayoutInflater
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -35,10 +32,13 @@ abstract class BaseActivity<VB : ViewDataBinding> : AppCompatActivity() {
 
     open fun initView() {}
 
-    open fun onObserve(){}
+    open fun onObserve() {}
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         LocaleManager.updateContext(this)
     }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {}
 }

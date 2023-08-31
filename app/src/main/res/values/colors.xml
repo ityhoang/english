@@ -24,4 +24,5 @@
     <color name="english_font_brown">#B16E3D</color>
     <color name="english_black_50">#80000000</color>
     <color name="english_broccoli">#49B0AB</color>
+    <color name="english_bg_dialog">#59000000</color>
 </resources>

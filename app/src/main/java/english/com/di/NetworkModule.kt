@@ -16,7 +16,8 @@ import english.com.BuildConfig
 import english.com.core.ServiceBuilder
 import english.com.data.local.Prefs
 import english.com.data.local.PrefsImpl
-import english.com.data.remote.EnglishInterceptor
+import english.com.core.EnglishInterceptor
+import english.com.data.remote.HomeApi
 import english.com.data.remote.UserApi
 import okhttp3.Interceptor
 import javax.inject.Singleton
@@ -29,7 +30,9 @@ class NetworkModule {
     @Provides
     @Singleton
     fun provideGson(): Gson {
-        return GsonBuilder().create()
+        return GsonBuilder().apply {
+            excludeFieldsWithoutExposeAnnotation()
+        }.create()
     }
 
     @Provides
@@ -75,6 +78,25 @@ class NetworkModule {
         return createServiceBuilder(
             context = context,
             clazz = UserApi::class.java,
+            gson = gson,
+            prefs = prefs,
+            interceptor = interceptor,
+            chuckerInterceptor = chuckerInterceptor
+        ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideHomeAPI(
+        @ApplicationContext context: Context,
+        gson: Gson,
+        prefs: Prefs,
+        interceptor: Interceptor,
+        chuckerInterceptor: ChuckerInterceptor,
+    ) : HomeApi {
+        return createServiceBuilder(
+            context = context,
+            clazz = HomeApi::class.java,
             gson = gson,
             prefs = prefs,
             interceptor = interceptor,

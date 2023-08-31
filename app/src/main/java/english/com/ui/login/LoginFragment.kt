@@ -8,7 +8,6 @@ import english.com.databinding.EnglishFragmentLoginBinding
 import english.com.ui.EnglishMainActivity
 import english.com.utils.extensions.hideKeyboard
 import english.com.utils.extensions.safeOnClickListener
-import english.com.utils.extensions.setHtmlTextValue
 
 @AndroidEntryPoint
 class LoginFragment : BaseFragment<EnglishFragmentLoginBinding, LoginViewModel>() {
@@ -17,16 +16,15 @@ class LoginFragment : BaseFragment<EnglishFragmentLoginBinding, LoginViewModel>(
     override fun initView() {
         super.initView()
         binding.apply {
-            setHtmlTextValue(tvSupport, R.string.english_tv_sign_up)
-//            tvSupport.setOnClickListener {
-//                RegisterFragment.start(this@LoginFragment)
-//            }
+            tvSupport.setOnClickListener {
+                navigate(LoginFragmentDirections.actionLoginFragmentToRegisterFragment())
+            }
             btnSignIn.safeOnClickListener {
                 hideKeyboard()
                 viewModel.login(
                     email = edtEmail.text.toString(), password = edtPassword.text.toString()
                 ) {
-                    EnglishMainActivity.start(requireActivity(), isLogin = true)
+                    EnglishMainActivity.start(requireActivity())
                 }
             }
         }

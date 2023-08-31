@@ -6,6 +6,7 @@ import english.com.R
 import english.com.base.BaseFragment
 import english.com.databinding.EnglishWordbookFragmentBinding
 import english.com.ui.wordbook.adapter.WordBookAdapter
+import english.com.utils.Constants
 import english.com.utils.DataLocal
 import english.com.utils.SpaceItemDecoration
 import english.com.utils.extensions.baseGridLayoutManager
@@ -37,11 +38,11 @@ class WordBookFragment : BaseFragment<EnglishWordbookFragmentBinding, WordBookVi
             adapter = wordBookAdapter
             addItemDecoration(
                 SpaceItemDecoration(
-                    insetsLeft = 5,
-                    insetsRight = 5,
-                    insetsBottom = 10,
-                    insetsLast = 5,
-                    insetsFirst = 5
+                    insetsLeft = Constants.spaceItem,
+                    insetsRight = Constants.spaceItem,
+                    insetsBottom = Constants.spaceItem * 2,
+                    insetsLast = Constants.spaceItem,
+                    insetsFirst = Constants.spaceItem
                 )
             )
         }

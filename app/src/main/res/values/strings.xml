@@ -4,7 +4,8 @@
 
     <string name="english_title_account">Account</string>
     <string name="english_title_home">Home</string>
-    <string name="english_title_wordbook">wordbook</string>
+    <string name="english_title_wordbook">Wordbook</string>
+    <string name="english_title_game">Game</string>
     <string name="english_loading">Loading…</string>
 
 </resources>

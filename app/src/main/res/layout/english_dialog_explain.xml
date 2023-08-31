@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="isVisible"
+            type="Boolean" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            app:srcCompat="@drawable/english_ic_close" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dip_14"
+            android:background="@drawable/english_bg_dialog_explain"
+            android:elevation="@dimen/dip_1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dip_25"
+                android:layout_marginTop="@dimen/dip_18"
+                android:includeFontPadding="false"
+                android:text="Easy"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgView"
+                android:layout_width="@dimen/dip_85"
+                android:layout_height="@dimen/dip_85"
+                android:layout_marginTop="@dimen/dip_56"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/english_ic_lion" />
+
+            <TextView
+                android:id="@+id/tvOriginal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dip_6"
+                android:includeFontPadding="false"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imgView"
+                app:layout_constraintStart_toStartOf="@id/imgView"
+                app:layout_constraintTop_toBottomOf="@id/imgView"
+                tools:text="Lion" />
+
+            <TextView
+                android:id="@+id/tvSpell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dip_6"
+                android:includeFontPadding="false"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@id/imgView"
+                app:layout_constraintStart_toStartOf="@id/imgView"
+                app:layout_constraintTop_toBottomOf="@id/tvOriginal"
+                tools:text="/ˈlaɪən/" />
+
+            <TextView
+                android:id="@+id/tvTranslation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dip_6"
+                android:includeFontPadding="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/imgView"
+                app:layout_constraintStart_toStartOf="@id/imgView"
+                app:layout_constraintTop_toBottomOf="@id/tvSpell"
+                tools:text="Con Sư Tử" />
+
+            <TextView
+                android:id="@+id/tvMeaning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dip_30"
+                android:layout_marginTop="@dimen/dip_6"
+                android:includeFontPadding="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTranslation"
+                app:layout_goneMarginTop="@dimen/dip_25"
+                tools:text="Meaning:" />
+
+            <TextView
+                android:id="@+id/tvContextM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dip_30"
+                android:layout_marginTop="@dimen/dip_6"
+                android:includeFontPadding="false"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvMeaning"
+                app:layout_goneMarginTop="@dimen/dip_25"
+                tools:text="A large wild animal of the cat family with yellowish-brown fur that lives in Africa and Southern Asia" />
+
+            <TextView
+                android:id="@+id/tvExample"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dip_30"
+                android:layout_marginTop="@dimen/dip_6"
+                android:includeFontPadding="false"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvContextM"
+                app:layout_goneMarginTop="@dimen/dip_25"
+                tools:text="Example:" />
+
+            <TextView
+                android:id="@+id/tvContextE"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/dip_30"
+                android:layout_marginTop="@dimen/dip_6"
+                android:includeFontPadding="false"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvExample"
+                app:layout_goneMarginTop="@dimen/dip_25"
+                tools:text="The lion loped across the grass." />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPrevious"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dip_30"
+                android:layout_marginTop="@dimen/dip_15"
+                android:layout_marginBottom="@dimen/dip_32"
+                android:backgroundTint="@color/primary_500"
+                android:insetTop="@dimen/dip_0"
+                android:insetBottom="@dimen/dip_0"
+                android:letterSpacing="0"
+                android:stateListAnimator="@null"
+                android:text="Previous"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="@dimen/dip_10"
+                app:elevation="@dimen/dip_0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvContextE" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dip_15"
+                android:layout_marginEnd="@dimen/dip_30"
+                android:layout_marginBottom="@dimen/dip_32"
+                android:backgroundTint="@color/primary_500"
+                android:insetTop="@dimen/dip_0"
+                android:insetBottom="@dimen/dip_0"
+                android:letterSpacing="0"
+                android:stateListAnimator="@null"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textSize="16sp"
+                app:cornerRadius="@dimen/dip_10"
+                app:elevation="@dimen/dip_0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvContextE" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dip_15"
+            android:layout_marginTop="-25dp"
+            android:background="@drawable/english_bg_dialog_explain"
+            android:paddingVertical="@dimen/dip_20" />
+    </LinearLayout>
+</layout>

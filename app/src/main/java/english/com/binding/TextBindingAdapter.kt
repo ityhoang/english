@@ -1,14 +1,13 @@
-package english.com.utils.extensions
+package english.com.binding
 
-import android.content.res.ColorStateList
 import android.widget.TextView
 import androidx.annotation.StringRes
-import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 
+
 @BindingAdapter("htmlTextValue")
-fun setHtmlTextValue(
+internal fun setHtmlTextValue(
     textView: TextView,
     @StringRes resId: Int
 ) {

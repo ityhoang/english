@@ -1,0 +1,94 @@
+package english.com.base
+
+import android.annotation.SuppressLint
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
+import android.os.Build
+import android.os.Bundle
+import android.view.*
+import androidx.annotation.RequiresApi
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
+import androidx.viewbinding.ViewBinding
+import english.com.R
+import english.com.utils.extensions.setMarginsInPixels
+import english.com.utils.extensions.toPx
+
+abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment() {
+    protected lateinit var binding: VB
+    abstract val layoutId: Int
+    open var isCancel = true
+
+    @SuppressLint("UseGetLayoutInflater")
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
+        binding = DataBindingUtil.inflate(LayoutInflater.from(context), layoutId, null, false)
+        onObserve()
+        return binding.root
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
+
+    open fun onObserve() {}
+    open fun initView() {}
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog: Dialog = super.onCreateDialog(savedInstanceState)
+        dialog.apply {
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
+            dialog.setCanceledOnTouchOutside(isCancel)
+            dialog.setCancelable(isCancel)
+        }
+        return dialog
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        dialog?.dismiss()
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun onResume() {
+        super.onResume()
+        dialog?.apply {
+            val params = window?.attributes
+            params?.width = ViewGroup.LayoutParams.MATCH_PARENT
+            params?.height = ViewGroup.LayoutParams.WRAP_CONTENT
+            window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            window?.attributes?.apply {
+                gravity = Gravity.CENTER
+                windowAnimations = R.style.DialogAnimation
+            }
+            view?.fitsSystemWindows = true
+            window?.attributes = params as WindowManager.LayoutParams
+        }
+    }
+
+    fun Dialog.setMargin(
+        marginStart: Int = 0,
+        marginTop: Int = 0,
+        marginEnd: Int = 0,
+        marginBottom: Int = 0
+    ) {
+        this.apply {
+            view?.setMarginsInPixels(
+                marginStart.toPx(context).toInt(),
+                marginTop.toPx(context).toInt(),
+                marginEnd.toPx(context).toInt(),
+                marginBottom.toPx(context).toInt()
+            )
+        }
+    }
+
+    fun showAllowingStateLoss(fm: FragmentManager, tag: String? = null) {
+        fm.beginTransaction().add(this, tag).commitAllowingStateLoss()
+    }
+}

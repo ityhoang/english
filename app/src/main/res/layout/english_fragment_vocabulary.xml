@@ -18,16 +18,52 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
+            app:layout_constraintBottom_toTopOf="@id/bgQuiz"
             android:id="@+id/rcVocabulary"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/toolbar"
             app:spanCount="1"
             tools:itemCount="3"
             tools:listitem="@layout/english_item_sub" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bgQuiz"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_boder_top"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardQuiz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dip_18"
+                app:cardCornerRadius="@dimen/dip_8"
+                app:cardElevation="@dimen/dip_8"
+                app:cardPreventCornerOverlap="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuiz"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/yellow_500"
+                    android:insetTop="@dimen/dip_0"
+                    android:insetBottom="@dimen/dip_0"
+                    android:letterSpacing="0"
+                    android:stateListAnimator="@null"
+                    android:text="Take the quiz"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:cornerRadius="@dimen/dip_8" />
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

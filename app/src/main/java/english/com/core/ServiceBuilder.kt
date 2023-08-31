@@ -116,6 +116,19 @@ class ServiceBuilder<T>(private val serviceClass: Class<T>) {
             )
         }
 
+        /***
+        if token null call api reset token
+        if(tokenProvider == null) tokenProvider = apiResetToke()
+        tokenProvider?.let { provider ->
+            okHttpClientBuilder.addInterceptor { chain ->
+                val request = chain.request().newBuilder()
+                    .header("Authorization", "Bearer ${provider.invoke()}")
+                    .build()
+                chain.proceed(request)
+            }
+        }
+         ***/
+
         tokenProvider?.let { provider ->
             okHttpClientBuilder.addInterceptor { chain ->
                 val request = chain.request().newBuilder()

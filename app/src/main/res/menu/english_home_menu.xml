@@ -18,6 +18,12 @@
         app:showAsAction="ifRoom" />
 
     <item
+        android:id="@+id/english_game_navigation"
+        android:icon="@drawable/english_ic_game"
+        android:title="@string/english_title_game"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/english_account_navigation"
         android:icon="@drawable/english_ic_account"
         android:title="@string/english_title_account"

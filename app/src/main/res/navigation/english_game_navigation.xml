@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/english_game_navigation"
+    app:startDestination="@id/gameFragment">
+
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="english.com.ui.game.GameFragment"
+        android:label="GameFragment" />
+</navigation>

@@ -52,6 +52,6 @@
         app:layout_constraintTop_toBottomOf="@id/cCountPoint"
         app:spanCount="2"
         tools:itemCount="2"
-        tools:listitem="@layout/english_item_wordbook" />
+        tools:listitem="@layout/english_item_vocabulary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
