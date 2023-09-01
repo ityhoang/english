@@ -10,7 +10,6 @@ import english.com.utils.Constants
 import english.com.utils.DataLocal
 import english.com.utils.SpaceItemDecoration
 import english.com.utils.extensions.baseGridLayoutManager
-import english.com.utils.extensions.show
 
 @AndroidEntryPoint
 class WordBookFragment : BaseFragment<EnglishWordbookFragmentBinding, WordBookViewModel>() {
@@ -23,11 +22,12 @@ class WordBookFragment : BaseFragment<EnglishWordbookFragmentBinding, WordBookVi
     }
 
     override fun setupHeader() {
-        super.setupHeader()
-        binding.apply {
-            toolbar.tvTitleHeader.show()
-            toolbar.tvTitleHeader.text = "demo"
-        }
+        binding.toolbar.setHeader(
+            isBack = false, centerTitle = "Word Book",
+            onButtonLeft = {
+                toHome()
+            }
+        )
     }
 
     override fun initView() {

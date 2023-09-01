@@ -12,6 +12,15 @@ class AccountFragment : BaseFragment<EnglishAccountFragmentBinding, AccountViewM
     override val viewModel: AccountViewModel by viewModels()
     override val layoutId = R.layout.english_account_fragment
 
+    override fun setupHeader() {
+        binding.toolbar.setHeader(
+            isBack = false, centerTitle = "Account",
+            onButtonLeft = {
+                toHome()
+            }
+        )
+    }
+
     override fun initView() {
         super.initView()
         binding.apply {

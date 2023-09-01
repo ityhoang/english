@@ -8,6 +8,6 @@ import english.com.data.session.Session
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(session: Session, homeRepository: HomeRepository) : BaseViewModel() {
+class HomeViewModel @Inject constructor(private val session: Session, private val homeRepository: HomeRepository) : BaseViewModel() {
     var user: User = session.user!!
 }

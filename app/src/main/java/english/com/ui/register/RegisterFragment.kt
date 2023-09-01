@@ -13,7 +13,7 @@ class RegisterFragment : BaseFragment<EnglishFragmentRegisterBinding, RegisterVi
         super.initView()
         binding.apply {
             tvSupport.setOnClickListener {
-                findNavController().popBackStack()
+                popBackStack()
             }
         }
     }

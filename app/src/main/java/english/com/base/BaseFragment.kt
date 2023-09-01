@@ -1,20 +1,24 @@
 package english.com.base
 
-import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.isGone
+import androidx.core.view.isInvisible
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import english.com.R
+import english.com.databinding.EnglishLayoutHeaderBinding
+import english.com.ui.EnglishMainActivity
+import english.com.utils.extensions.navOptions
+import english.com.utils.extensions.setColor
 
-abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>() : Fragment() {
+abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment() {
     abstract val viewModel: VM
     lateinit var binding: VB
     abstract val layoutId: Int
@@ -47,30 +51,55 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel>() : Fragme
         setupHeader()
     }
 
+    fun EnglishLayoutHeaderBinding.setHeader(
+        isBack: Boolean,
+        centerTitle: String? = null,
+        rightTitle: String? = null,
+        subTitle: String? = null,
+        onButtonLeft: (() -> Unit)? = null
+    ) {
+        // button right
+        imvLeft.setImageResource(
+            when (isBack) {
+                true -> R.drawable.english_ic_back
+                false -> R.drawable.english_ic_home
+            }
+        )
+        layoutLeft.setOnClickListener {
+            onButtonLeft?.invoke()
+        }
+
+        //center title
+        tvTitleHeader.isInvisible = centerTitle.isNullOrEmpty()
+        tvTitleHeader.text = centerTitle
+
+        //right title
+        layoutRight.isGone = rightTitle.isNullOrEmpty()
+        subName.isGone = subTitle.isNullOrEmpty()
+        subName.text = subTitle
+        tvRight.isGone = rightTitle.isNullOrEmpty()
+        tvRight.text = rightTitle
+        tvRight.setColor(
+            when (subTitle.isNullOrEmpty()) {
+                true -> R.color.english_font_title
+                false -> R.color.primary_500
+            }, requireContext()
+        )
+    }
+
     open fun onSubscriber() {}
     open fun onInitializeData() {}
-    open fun setupHeader() {}
+    internal open fun setupHeader() {}
     open fun popBackStack() {
         findNavController().popBackStack()
     }
 
     fun navigate(directions: NavDirections) {
-        findNavController().navigate(directions)
+        findNavController().navigate(directions, navOptions)
     }
 
-    fun TextView.setColor(id: Int) {
-        setTextColor(
-            ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    requireContext(),
-                    id
-                )
-            )
-        )
-    }
-    fun View.onBack(){
-        setOnClickListener {
-            findNavController().popBackStack()
-        }
+    fun toHome() {
+        (requireActivity() as EnglishMainActivity).binding.bottomNavigation.selectedItemId =
+            R.id.english_home_navigation
     }
 }

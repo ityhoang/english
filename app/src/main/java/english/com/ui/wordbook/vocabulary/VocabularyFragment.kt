@@ -14,21 +14,19 @@ class VocabularyFragment :
     override val layoutId = R.layout.english_fragment_vocabulary
 
     override fun setupHeader() {
-        super.setupHeader()
-        binding.apply {
-            toolbar.imvLeft.setImageResource(R.drawable.english_ic_back)
-            toolbar.layoutLeft.onBack()
-            toolbar.tvTitleHeader.show()
-            toolbar.tvTitleHeader.text = "English"
-            toolbar.layoutRight.hide()
-        }
+        binding.toolbar.setHeader(
+            isBack = true, centerTitle = "Vocabulary",
+            onButtonLeft = {
+                popBackStack()
+            }
+        )
     }
 
     override fun initView() {
         super.initView()
         binding.apply {
             btnQuiz.setOnClickListener {
-                DetailDialogFragment().showAllowingStateLoss(childFragmentManager)
+                navigate(VocabularyFragmentDirections.actionVocabularyFragmentToQuizFragment())
             }
         }
     }

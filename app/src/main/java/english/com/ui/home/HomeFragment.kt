@@ -1,6 +1,5 @@
 package english.com.ui.home
 
-import android.view.View
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import english.com.R
@@ -13,11 +12,10 @@ class HomeFragment : BaseFragment<EnglishFragmentHomeBinding, HomeViewModel>() {
     override val layoutId = R.layout.english_fragment_home
 
     override fun setupHeader() {
-        binding.apply {
-            toolbar.subName.visibility = View.VISIBLE
-            toolbar.tvRight.text = viewModel.user.getFullName()
-            toolbar.tvRight.setColor(R.color.primary_500)
-        }
+        binding.toolbar.setHeader(
+            isBack = false, subTitle = "Name of myapp",
+            rightTitle = viewModel.user.getFullName(),
+        )
     }
 
     override fun initView() {

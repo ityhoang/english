@@ -7,7 +7,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
-//    id("com.google.gms.google-services")
+    id("com.google.gms.google-services")
 }
 
 android {

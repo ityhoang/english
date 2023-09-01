@@ -174,7 +174,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/dip_21"
                     android:paddingVertical="@dimen/dip_21"
-                    android:src="@drawable/english_ic_game"
+                    android:src="@drawable/english_ic_puzzle"
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <TextView

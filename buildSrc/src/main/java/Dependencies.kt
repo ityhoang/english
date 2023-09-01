@@ -70,8 +70,7 @@ object AppDependencies {
   private const val swipeLayout = "com.github.zerobranch:SwipeLayout:1.3.1"
 
   private const val dotsIndicator = "com.tbuonomo:dotsindicator:4.3"
-//  private const val barcode1 = "com.github.yuriy-budiyev:code-scanner:2.3.2"
-  private const val barcode = "com.journeyapps:zxing-android-embedded:4.3.0"
+
   val appLibraries = arrayListOf<String>().apply {
     add(kotlinStandardLib)
     add(kotlinCoreKtx)
@@ -112,8 +111,6 @@ object AppDependencies {
     add(circleImageView)
     add(dotsIndicator)
     add(swipeLayout)
-    add(barcode)
-
   }
 
   val androidLibrariesKapt = arrayListOf<String>().apply {

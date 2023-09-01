@@ -8,6 +8,8 @@ import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
+import english.com.R
 import english.com.utils.SafeClickListener
 
 fun Activity.setFullScreen() {
@@ -60,3 +62,10 @@ internal fun View.setMarginsInPixels(start: Int = 0, top: Int = 0, end: Int = 0,
         this.requestLayout()
     }
 }
+
+val navOptions = NavOptions.Builder()
+    .setEnterAnim(R.anim.english_slide_in_left)
+    .setExitAnim(R.anim.english_slide_out_left)
+    .setPopEnterAnim(R.anim.english_slide_in_right)
+    .setPopExitAnim(R.anim.english_slide_out_right)
+    .build()
