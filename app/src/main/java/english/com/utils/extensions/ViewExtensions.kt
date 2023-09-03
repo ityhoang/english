@@ -5,6 +5,7 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.DimenRes
 import androidx.fragment.app.Fragment
@@ -69,3 +70,25 @@ val navOptions = NavOptions.Builder()
     .setPopEnterAnim(R.anim.english_slide_in_right)
     .setPopExitAnim(R.anim.english_slide_out_right)
     .build()
+
+fun applyPulsingLoadAnimation(view: View) {
+    val animation = AnimationUtils.loadAnimation(view.context, R.anim.english_pulsing)
+    view.startAnimation(animation)
+}
+
+fun View.startAnimation(viewAnimation: View, isRun: Boolean) {
+    if (isRun) {
+        show()
+        viewAnimation.show()
+        applyPulsingLoadAnimation(viewAnimation)
+    } else {
+        hide()
+        viewAnimation.hide()
+        clearAnimation(viewAnimation)
+    }
+}
+
+fun clearAnimation(view: View) {
+    view.animation?.cancel()
+    view.clearAnimation()
+}

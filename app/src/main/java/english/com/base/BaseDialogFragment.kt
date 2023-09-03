@@ -6,6 +6,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.os.Parcelable
+import android.util.Log
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
@@ -85,6 +87,17 @@ abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment() {
                 marginEnd.toPx(context).toInt(),
                 marginBottom.toPx(context).toInt()
             )
+        }
+    }
+
+    fun <T> sendData(data: T, isShow: Int) {
+        if (data is Parcelable) {
+            val args = Bundle()
+            args.putInt("isShow", isShow)
+            args.putParcelable(data!!::class.java.name, data)
+            arguments = args
+        } else {
+            Log.w("sendData", "data is not Parcelable")
         }
     }
 

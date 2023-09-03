@@ -25,4 +25,6 @@
     <color name="english_black_50">#80000000</color>
     <color name="english_broccoli">#49B0AB</color>
     <color name="english_bg_dialog">#59000000</color>
+    <color name="english_bg_remove">#FF1919</color>
+    <color name="english_bg_add">#143BFF</color>
 </resources>

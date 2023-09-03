@@ -7,7 +7,7 @@
 
         <variable
             name="vocabulary"
-            type="english.com.model.Vocabulary" />
+            type="english.com.model.WordBook" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

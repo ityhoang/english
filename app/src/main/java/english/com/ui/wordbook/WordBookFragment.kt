@@ -16,7 +16,7 @@ class WordBookFragment : BaseFragment<EnglishWordbookFragmentBinding, WordBookVi
     override val viewModel: WordBookViewModel by viewModels()
     override val layoutId = R.layout.english_wordbook_fragment
     private val wordBookAdapter by lazy {
-        WordBookAdapter {
+        WordBookAdapter { _, _ ->
             navigate(WordBookFragmentDirections.actionWordBookFragmentToVocabularyFragment())
         }
     }
@@ -32,9 +32,9 @@ class WordBookFragment : BaseFragment<EnglishWordbookFragmentBinding, WordBookVi
 
     override fun initView() {
         super.initView()
-        wordBookAdapter.submitList(DataLocal.listVocabulary)
+        wordBookAdapter.submitList(DataLocal.listWordBook)
         binding.rcWordBook.apply {
-            layoutManager = baseGridLayoutManager(2)
+            layoutManager = baseGridLayoutManager(requireContext(), 2)
             adapter = wordBookAdapter
             addItemDecoration(
                 SpaceItemDecoration(

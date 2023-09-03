@@ -79,9 +79,14 @@ class EnglishMainActivity : BaseActivity<EnglishActivityMainBinding>() {
                 }).start()
         } else {
             binding.bottomAppBar.hide()
-            binding.fragmentContainer.removePaddingBottomBar()
-            toolbar.animate().translationY(toolbar.bottom.toFloat()).setDuration(500)
-                .setInterpolator(AccelerateInterpolator()).start()
+            toolbar.animate().translationY(toolbar.bottom.toFloat()).setDuration(100)
+                .setInterpolator(AccelerateInterpolator())
+                .setListener(object : AnimationListener() {
+                    override fun onComplete() {
+                        binding.fragmentContainer.removePaddingBottomBar()
+                    }
+                })
+                .start()
         }
     }
 

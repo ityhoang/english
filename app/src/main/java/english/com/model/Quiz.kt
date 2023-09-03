@@ -5,14 +5,11 @@ import com.google.gson.annotations.Expose
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Vocabulary(
+data class Quiz(
     @Expose
     val id: Int,
     @Expose
-    val title: String,
-    @Expose
-    val count: Int,
-    val vocabularies: List<WordBook>
+    val answer: String,
 ) : Parcelable {
 
 }

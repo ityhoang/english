@@ -16,6 +16,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/btnCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
@@ -145,48 +146,70 @@
                 tools:text="The lion loped across the grass." />
 
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnPrevious"
-                android:layout_width="0dp"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/animation1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/english_bg_btn_blue"
+                android:padding="@dimen/dip_20"
+                app:layout_constraintBottom_toBottomOf="@id/btnAdd"
+                app:layout_constraintEnd_toEndOf="@id/btnAdd"
+                app:layout_constraintStart_toStartOf="@id/btnAdd"
+                app:layout_constraintTop_toTopOf="@id/btnAdd" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnAdd"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dip_30"
                 android:layout_marginTop="@dimen/dip_15"
                 android:layout_marginBottom="@dimen/dip_32"
-                android:backgroundTint="@color/primary_500"
-                android:insetTop="@dimen/dip_0"
-                android:insetBottom="@dimen/dip_0"
-                android:letterSpacing="0"
-                android:stateListAnimator="@null"
-                android:text="Previous"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                app:cornerRadius="@dimen/dip_10"
-                app:elevation="@dimen/dip_0"
+                app:cardBackgroundColor="@color/primary_500"
+                app:cardCornerRadius="@dimen/dip_12"
+                app:cardElevation="@dimen/dip_0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvContextE" />
+                app:layout_constraintTop_toBottomOf="@id/tvContextE">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dip_10"
+                    android:src="@drawable/english_ic_add" />
+            </androidx.cardview.widget.CardView>
 
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnNext"
-                android:layout_width="0dp"
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/animation2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/english_bg_btn_red"
+                android:padding="@dimen/dip_20"
+                app:layout_constraintBottom_toBottomOf="@id/btnRemove"
+                app:layout_constraintEnd_toEndOf="@id/btnRemove"
+                app:layout_constraintStart_toStartOf="@id/btnRemove"
+                app:layout_constraintTop_toTopOf="@id/btnRemove" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/btnRemove"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dip_15"
                 android:layout_marginEnd="@dimen/dip_30"
                 android:layout_marginBottom="@dimen/dip_32"
-                android:backgroundTint="@color/primary_500"
-                android:insetTop="@dimen/dip_0"
-                android:insetBottom="@dimen/dip_0"
-                android:letterSpacing="0"
-                android:stateListAnimator="@null"
-                android:text="Next"
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                app:cornerRadius="@dimen/dip_10"
-                app:elevation="@dimen/dip_0"
+                app:cardBackgroundColor="@color/english_bg_remove"
+                app:cardCornerRadius="@dimen/dip_12"
+                app:cardElevation="@dimen/dip_0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvContextE" />
+                app:layout_constraintTop_toBottomOf="@id/tvContextE">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dip_10"
+                    android:src="@drawable/english_ic_remove" />
+            </androidx.cardview.widget.CardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

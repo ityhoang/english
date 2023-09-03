@@ -1,6 +1,7 @@
 package english.com.utils.extensions
 
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -12,6 +13,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 @RequiresApi(Build.VERSION_CODES.R)
@@ -46,12 +48,20 @@ fun Fragment.checkStoragePermission(listener: () -> Unit) = when {
     }
 }
 
-fun Fragment.baseGridLayoutManager(spanCount: Int): GridLayoutManager {
-    return GridLayoutManager(requireContext(), spanCount, RecyclerView.VERTICAL, false).apply {
+fun baseGridLayoutManager(context: Context, spanCount: Int): GridLayoutManager {
+    return GridLayoutManager(context, spanCount, RecyclerView.VERTICAL, false).apply {
         spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
             override fun getSpanSize(position: Int) = 1
         }
     }
 }
 
+fun baseLinearLayoutManager(context: Context, orientation: Int): LinearLayoutManager {
+    return LinearLayoutManager(context, orientation, false)
+}
+
 fun Fragment.toDp(@DimenRes dimen: Int) = resources.getDimensionPixelSize(dimen)
+
+
+@Suppress("EXTENSION_SHADOWED_BY_MEMBER")
+inline fun <reified T> Fragment.getArguments() = arguments?.get(T::class.java.name) as T
