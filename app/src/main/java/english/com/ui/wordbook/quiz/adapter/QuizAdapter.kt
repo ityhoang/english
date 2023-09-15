@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import english.com.databinding.EnglishItemQuizBinding
 import english.com.model.Quiz
+import english.com.utils.extensions.safeOnClickListener
 
 class QuizAdapter(private val onClick: (Quiz) -> Unit) :
     ListAdapter<Quiz, QuizAdapter.ViewHolder>(QuizDiffCallback()) {
@@ -16,7 +17,7 @@ class QuizAdapter(private val onClick: (Quiz) -> Unit) :
         fun bind(item: Quiz) {
             with(binding) {
                 tvAnswer.text = item.answer
-                itemView.setOnClickListener { onClick.invoke(item) }
+                itemView.safeOnClickListener { onClick.invoke(item) }
             }
         }
     }

@@ -10,6 +10,7 @@ import english.com.R
 import english.com.databinding.EnglishItemWordbookBinding
 import english.com.model.WordBook
 import english.com.utils.Status
+import english.com.utils.extensions.safeOnClickListener
 import english.com.utils.extensions.setStroke
 
 class WordBookAdapter(private val onClick: (WordBook, Int) -> Unit) :
@@ -34,7 +35,7 @@ class WordBookAdapter(private val onClick: (WordBook, Int) -> Unit) :
         fun bind(item: WordBook, position: Int) {
             with(binding) {
                 vocabulary = item
-                itemView.setOnClickListener {
+                itemView.safeOnClickListener {
                     onClick.invoke(
                         item,
                         when (position) {

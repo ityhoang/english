@@ -65,3 +65,7 @@ fun Fragment.toDp(@DimenRes dimen: Int) = resources.getDimensionPixelSize(dimen)
 
 @Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 inline fun <reified T> Fragment.getArguments() = arguments?.get(T::class.java.name) as T
+
+//fun Fragment.navigate(directions: NavDirections) {
+//    findNavController().navigate(directions, navOptions)
+//}

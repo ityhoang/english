@@ -13,10 +13,8 @@ import english.com.ui.wordbook.adapter.WordBookAdapter
 import english.com.utils.Constants
 import english.com.utils.SpaceItemDecoration
 import english.com.utils.extensions.baseGridLayoutManager
+import english.com.utils.extensions.safeOnClickListener
 import english.com.view.DetailDialogFragment
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class VocabularyAdapter(fm: FragmentManager, private val onClick: (Vocabulary) -> Unit) :
     ListAdapter<Vocabulary, VocabularyAdapter.ViewHolder>(VocabularyDiffCallback()) {
@@ -34,10 +32,8 @@ class VocabularyAdapter(fm: FragmentManager, private val onClick: (Vocabulary) -
             with(binding) {
                 tvTitle.text = item.title
                 tvCountPoint.text = item.vocabularies.size.toString()
-                CoroutineScope(Dispatchers.IO).launch {
-                    wordBookAdapter.submitList(item.vocabularies)
-                }
-                itemView.setOnClickListener { onClick.invoke(item) }
+                wordBookAdapter.submitList(item.vocabularies)
+                itemView.safeOnClickListener { onClick.invoke(item) }
             }
         }
     }
