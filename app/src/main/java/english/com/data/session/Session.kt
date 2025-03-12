@@ -22,11 +22,14 @@ class Session @Inject constructor(context: Context, private val prefs: Prefs) {
     var deviceId: String
         get() = prefs.getObject(PREF_DEVICE_ID, String::class.java) ?: ""
         set(value) = prefs.putObject(PREF_DEVICE_ID, value)
-
+    var firstLogin: Boolean
+        get() = prefs.getObject(PREF_FIRST_LOGIN, Boolean::class.java) ?: true
+        set(value) = prefs.putObject(PREF_FIRST_LOGIN, value)
     companion object {
         const val PREF_USER_ID = "user_id"
         const val PREF_USER = "user"
         const val PREF_TOKEN = "token"
         const val PREF_DEVICE_ID = "device_id"
+        const val PREF_FIRST_LOGIN = "first_login"
     }
 }

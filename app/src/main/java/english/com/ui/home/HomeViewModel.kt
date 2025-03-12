@@ -9,5 +9,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(private val session: Session, private val homeRepository: HomeRepository) : BaseViewModel() {
-    var user: User = session.user!!
+    var user: User? = session.user
 }

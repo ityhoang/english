@@ -13,6 +13,7 @@ import english.com.utils.extensions.baseGridLayoutManager
 
 @AndroidEntryPoint
 class WordBookFragment : BaseFragment<EnglishWordbookFragmentBinding, WordBookViewModel>() {
+    /**TÝ DEV GÀ**/
     override val viewModel: WordBookViewModel by viewModels()
     override val layoutId = R.layout.english_wordbook_fragment
     private val wordBookAdapter by lazy {
@@ -33,9 +34,20 @@ class WordBookFragment : BaseFragment<EnglishWordbookFragmentBinding, WordBookVi
     override fun initView() {
         super.initView()
         wordBookAdapter.submitList(DataLocal.listWordBook)
+        binding.txtEn.setOnClickListener {
+            val currentList = wordBookAdapter.currentList.toMutableList()
+            currentList.reverse()
+            wordBookAdapter.submitList(currentList) {
+                binding.rcWordBook.scrollToPosition(0)
+            }
+//            val list = wordBookAdapter.currentList.reversed()
+//            wordBookAdapter.submitList(list)
+        }
         binding.rcWordBook.apply {
             layoutManager = baseGridLayoutManager(requireContext(), 2)
             adapter = wordBookAdapter
+            animation = null
+            itemAnimator = null
             addItemDecoration(
                 SpaceItemDecoration(
                     insetsLeft = Constants.spaceItem,

@@ -14,7 +14,7 @@ class HomeFragment : BaseFragment<EnglishFragmentHomeBinding, HomeViewModel>() {
     override fun setupHeader() {
         binding.toolbar.setHeader(
             isBack = false, subTitle = "Name of myapp",
-            rightTitle = viewModel.user.getFullName(),
+            rightTitle = viewModel.user?.getFullName(),
         )
     }
 

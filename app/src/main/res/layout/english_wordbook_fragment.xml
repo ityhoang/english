@@ -39,6 +39,7 @@
             app:layout_constraintTop_toBottomOf="@id/pbTask">
 
             <TextView
+                android:id="@+id/txtEn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingEnd="@dimen/dip_20"

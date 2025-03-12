@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.provider.Settings
 import androidx.ads.identifier.AdvertisingIdClient
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
@@ -37,6 +38,7 @@ class EnglishApplication : MultiDexApplication(), LifecycleEventObserver {
 
     override fun onCreate() {
         super.onCreate()
+//        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         if (session.deviceId.isEmpty()) {
             getDeviceId()
         }
