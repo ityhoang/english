@@ -14,4 +14,24 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <!-- Overlay for light mode -->
+    <style name="ThemeOverlay.LightMode" parent="">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Add more colors as needed -->
+    </style>
+
+    <!-- Overlay for dark mode -->
+    <style name="ThemeOverlay.DarkMode" parent="">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Add more colors as needed -->
+    </style>
 </resources>

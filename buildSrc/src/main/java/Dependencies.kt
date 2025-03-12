@@ -52,7 +52,7 @@ object AppDependencies {
   const val roomCompiler = "androidx.room:room-compiler:$roomVersion"
   private const val roomRxJava = "androidx.room:room-rxjava3:$roomVersion"
 
-  private const val rxPermissions =  "com.github.tbruyelle:rxpermissions:0.12"
+//  private const val rxPermissions =  "com.github.tbruyelle:rxpermissions:0.12"
 
   private const val materialDesign = "com.google.android.material:material:1.6.1"
 
@@ -103,7 +103,7 @@ object AppDependencies {
     add(roomDatabase)
     add(roomKtxDatabase)
     add(roomRxJava)
-    add(rxPermissions)
+//    add(rxPermissions)
     add(materialDesign)
     add(adsIdentifier)
     add(biometric)

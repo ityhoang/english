@@ -4,12 +4,15 @@ import android.annotation.SuppressLint
 import android.app.Dialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
-import android.view.*
-import androidx.annotation.RequiresApi
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
+import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
@@ -56,7 +59,6 @@ abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment() {
         dialog?.dismiss()
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onResume() {
         super.onResume()
         dialog?.apply {
@@ -75,10 +77,7 @@ abstract class BaseDialogFragment<VB : ViewBinding> : DialogFragment() {
     }
 
     fun Dialog.setMargin(
-        marginStart: Int = 0,
-        marginTop: Int = 0,
-        marginEnd: Int = 0,
-        marginBottom: Int = 0
+        marginStart: Int = 0, marginTop: Int = 0, marginEnd: Int = 0, marginBottom: Int = 0
     ) {
         this.apply {
             view?.setMarginsInPixels(

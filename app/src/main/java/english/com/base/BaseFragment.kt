@@ -152,8 +152,12 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : BaseViewModel> : Fragment
         onSubscriber()
         onObserve()
         initBaseEvent()
-        initView()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        initView()
+        super.onViewCreated(view, savedInstanceState)
     }
 
     protected fun navigate(directions: NavDirections) {

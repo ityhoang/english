@@ -12,6 +12,7 @@ class SpaceItemDecoration(
     private val insetsBottom: Int = 0,
     private val insetsFirst: Int? = null,
     private val insetsLast: Int? = null,
+    private val removeLR: Boolean = false,
 ) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(
@@ -36,17 +37,31 @@ class SpaceItemDecoration(
         insetsLast?.let {
             iLast = it.toDp(context).toInt()
         }
-
-        if (position == 0) {
-            outRect.left = iFirst
-            outRect.right = iRight
-        } else if (position == lastItemPosition) {
-            outRect.right = iLast
-            outRect.left = iLeft
+        if (removeLR) {
+            if (position % 2 == 0) {
+                outRect.right = iRight
+            } else {
+                outRect.left = iLeft
+            }
         } else {
-            outRect.left = iLeft
-            outRect.right = iRight
+            when (position) {
+                0 -> {
+                    outRect.left = iFirst
+                    outRect.right = iRight
+                }
+
+                lastItemPosition -> {
+                    outRect.right = iLast
+                    outRect.left = iLeft
+                }
+
+                else -> {
+                    outRect.left = iLeft
+                    outRect.right = iRight
+                }
+            }
         }
+
         outRect.top = iTop
         outRect.bottom = iBottom
     }

@@ -71,53 +71,53 @@ fun BottomNavigationView.setupWithNavController(
     // When a navigation item is selected
     setOnItemSelectedListener { item ->
         // Don't do anything if the state is state has already been saved.
-//        if (fragmentManager.isStateSaved) {
-//            false
-//        } else {
-        val newlySelectedItemTag = graphIdToTagMap[item.itemId]
-        if (selectedItemTag != newlySelectedItemTag) {
-            // Pop everything above the first fragment (the "fixed start destination")
-            tryBlock {
-                fragmentManager.popBackStack(
-                    firstFragmentTag,
-                    FragmentManager.POP_BACK_STACK_INCLUSIVE
-                )
-            }
-            val selectedFragment = fragmentManager.findFragmentByTag(newlySelectedItemTag)
-                    as NavHostFragment
+        if (fragmentManager.isStateSaved) {
+            false
+        } else {
+            val newlySelectedItemTag = graphIdToTagMap[item.itemId]
+            if (selectedItemTag != newlySelectedItemTag) {
+                // Pop everything above the first fragment (the "fixed start destination")
+                tryBlock {
+                    fragmentManager.popBackStack(
+                        firstFragmentTag,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    )
+                }
+                val selectedFragment = fragmentManager.findFragmentByTag(newlySelectedItemTag)
+                        as NavHostFragment
 
-            // Exclude the first fragment tag because it's always in the back stack.
-            if (firstFragmentTag != newlySelectedItemTag) {
-                // Commit a transaction that cleans the back stack and adds the first fragment
-                // to it, creating the fixed started destination.
-                fragmentManager.beginTransaction()
-                    .attach(selectedFragment)
-                    .setPrimaryNavigationFragment(selectedFragment)
-                    .apply {
-                        // Detach all other Fragments
-                        graphIdToTagMap.forEach { _, fragmentTagIter ->
-                            if (fragmentTagIter != newlySelectedItemTag) {
-                                detach(fragmentManager.findFragmentByTag(firstFragmentTag)!!)
+                // Exclude the first fragment tag because it's always in the back stack.
+                if (firstFragmentTag != newlySelectedItemTag) {
+                    // Commit a transaction that cleans the back stack and adds the first fragment
+                    // to it, creating the fixed started destination.
+                    fragmentManager.beginTransaction()
+                        .attach(selectedFragment)
+                        .setPrimaryNavigationFragment(selectedFragment)
+                        .apply {
+                            // Detach all other Fragments
+                            graphIdToTagMap.forEach { _, fragmentTagIter ->
+                                if (fragmentTagIter != newlySelectedItemTag) {
+                                    detach(fragmentManager.findFragmentByTag(firstFragmentTag)!!)
+                                }
                             }
                         }
-                    }
-                    .addToBackStack(firstFragmentTag)
-                    .setCustomAnimations(
-                        R.anim.english_slide_in_left,
-                        R.anim.english_slide_out_left,
-                        R.anim.english_slide_in_right,
-                        R.anim.english_slide_out_right,
-                    )
-                    .setReorderingAllowed(true)
-                    .commitAllowingStateLoss()
+                        .addToBackStack(firstFragmentTag)
+                        .setCustomAnimations(
+                            R.anim.english_slide_in_left,
+                            R.anim.english_slide_out_left,
+                            R.anim.english_slide_in_right,
+                            R.anim.english_slide_out_right,
+                        )
+                        .setReorderingAllowed(true)
+                        .commitAllowingStateLoss()
+                }
+                selectedItemTag = newlySelectedItemTag
+                isOnFirstFragment = selectedItemTag == firstFragmentTag
+                selectedNavController.value = selectedFragment.navController
+                true
+            } else {
+                false
             }
-            selectedItemTag = newlySelectedItemTag
-            isOnFirstFragment = selectedItemTag == firstFragmentTag
-            selectedNavController.value = selectedFragment.navController
-            true
-        } else {
-            false
-//            }
         }
     }
 

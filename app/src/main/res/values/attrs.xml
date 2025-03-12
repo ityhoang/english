@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="EnglishBottomNavigationView">
+        <attr name="indicatorHeaderHeight" format="dimension|reference"/>
+        <attr name="indicatorHeaderColor" format="reference|color"/>
+        <attr name="indicatorShadowColor" format="reference|color"/>
+        <attr name="indicatorShadowVisible" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleImageView">
+        <attr format="dimension" name="civ_border_width"/>
+        <attr format="color" name="civ_border_color"/>
+        <attr format="boolean" name="civ_border_overlay"/>
+        <attr format="color" name="civ_circle_background_color"/>
+    </declare-styleable>
+
+</resources>

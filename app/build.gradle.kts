@@ -86,9 +86,6 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     //app libs
     implementation(AppDependencies.appLibraries)
-    implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation("com.google.android.material:material:1.9.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("org.greenrobot:eventbus:3.3.1")
     implementation("com.airbnb.android:lottie:3.6.0")
     implementation("com.facebook.shimmer:shimmer:0.5.0")
